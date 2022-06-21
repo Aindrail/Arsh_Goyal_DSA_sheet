@@ -8,7 +8,7 @@ public:
             if( diff.find(nums[i])!= diff.end()){
                 ans.push_back(diff[nums[i]]);
                 ans.push_back(i);
-                
+                return ans;
             }
             else{
                 // diff.push(target-nums[i],i);
