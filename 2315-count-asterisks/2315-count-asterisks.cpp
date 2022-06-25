@@ -1,14 +1,14 @@
 class Solution {
 public:
     int countAsterisks(string s) {
-        int count_bar= 0, countA=0, last;
+        bool count_bar= 0;int countA=0, last;
         for(int i =0; i<s.length();i++){
              if(s[i]=='|') {
                  last = i;
-                 count_bar++;
+                 count_bar=!count_bar;
              }
             
-            if(count_bar%2==0){
+            if(count_bar==false){
                 if(s[i]=='*') countA++;
             }
         }
