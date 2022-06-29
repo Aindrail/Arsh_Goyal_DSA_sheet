@@ -44,14 +44,22 @@ class Solution {
         
         //Counting reverse pairs
         
-        int i=0, j=0, count = 0;
-        while(i<n && j<m){
-            if((a[i]/2.0) > b[j]){
-                count += (n - i);
+        // int i=0, j=0, count = 0;
+        // while(i<n && j<m){
+        //     if((a[i]/2.0) > b[j]){
+        //         count += (n - i);
+        //         j++;
+        //     }else{
+        //         i++;
+        //     }
+        // }
+        int i=left, j=mid+1, count = 0;
+       
+for(; i<=mid;i++){
+            while(j<=right && nums[i] > 2LL*nums[j]){
                 j++;
-            }else{
-                i++;
             }
+            count+=j-(mid+1);
         }
         
         //Merging elements
