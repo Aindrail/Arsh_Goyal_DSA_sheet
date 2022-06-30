@@ -1,46 +1,37 @@
 class RandomizedCollection {
 public:
-    /** Initialize your data structure here. */
+    vector<int> v;
+    vector<int>::iterator it;
     RandomizedCollection() {
-        
+        v.clear();
     }
     
-    /** Inserts a value to the collection. Returns true if the collection did not already contain the specified element. */
     bool insert(int val) {
-        auto result = m.find(val) == m.end();
-        
-        m[val].push_back(nums.size());
-        nums.push_back(pair<int, int>(val, m[val].size() - 1));
-        
-        return result;
-    }
-    
-    /** Removes a value from the collection. Returns true if the collection contained the specified element. */
-    bool remove(int val) {
-        auto result = m.find(val) != m.end();
-        if(result)
-        {
-            auto last = nums.back();
-            m[last.first][last.second] = m[val].back();
-            nums[m[val].back()] = last;
-            m[val].pop_back();
-            if(m[val].empty()) m.erase(val);
-            nums.pop_back();
+        if(v.empty()){
+            v.push_back(val);
+            return true;
         }
-        return result;
+        bool chk = true;
+        it = lower_bound(v.begin(), v.end(), val);
+        if(it != v.end() && *it == val) chk = false;
+        v.insert(it, val);
+        return chk;
     }
     
-    /** Get a random element from the collection. */
-    int getRandom() {
-        return nums[rand() % nums.size()].first;
+    bool remove(int val) {
+        it = lower_bound(v.begin(), v.end(), val);
+        if(it != v.end() && *it == val){
+            v.erase(it);
+            return true;
+        }
+        return false;
     }
-private:
-    vector<pair<int, int>> nums;
-    unordered_map<int, vector<int>> m;
+    
+    int getRandom() {
+        int tmp = rand() % v.size();
+        return v[tmp];
+    }
 };
-
-
-
 
 /**
  * Your RandomizedCollection object will be instantiated and called as such:
