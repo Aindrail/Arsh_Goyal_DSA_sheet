@@ -83,8 +83,11 @@ class Solution
     {
        // Your code here
        if(del==NULL) return;
+       Node* p = del->next;
        del->data = del->next->data;
+       
        del->next= del->next->next;
+       free(p);
     }
 
 };
