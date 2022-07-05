@@ -1,5 +1,5 @@
 # Delete without head pointer
-## Easy 
+##  Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">You are given a pointer/ reference to the node which is to be deleted from the&nbsp;linked list of <strong>N&nbsp;</strong>nodes. The task is to delete the node. Pointer/ reference to head node is not given.&nbsp;</span><br>
 <span style="font-size:18px"><strong>Note:</strong> No head reference is given to you. It is&nbsp;guaranteed&nbsp;that the node to be deleted is<strong>&nbsp;</strong>not a tail node<strong>&nbsp;</strong>in the linked list.</span></p>
