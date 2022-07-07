@@ -27,25 +27,25 @@ class Solution {
         while(left!=NULL && right != NULL){
             if(left->val < right->val){
                 temp->next = left;
-                 temp = temp->next;
+                 temp = left;
                 left=left->next;
  
             }
             else{
                 temp->next = right;
-                temp = temp->next;
+                temp = right;
                 right=right->next;
             }
 
         }
         while(right!=NULL){
             temp->next = right;
-                temp = temp->next;
+                temp = right;
                 right=right->next;
         }
         while(left!=NULL){
              temp->next = left;
-                temp = temp->next;
+                temp = left;
                 left=left->next;
         }
         ans = ans->next;
